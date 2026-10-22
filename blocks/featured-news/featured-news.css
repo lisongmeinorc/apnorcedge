@@ -1,0 +1,118 @@
+.featured-news {
+  color: #111;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.featured-news .featured-news-layout {
+  display: grid;
+  grid-template-areas:
+    'lead'
+    'secondary'
+    'news';
+  gap: 32px;
+}
+
+.featured-news .featured-news-secondary {
+  grid-area: secondary;
+}
+
+.featured-news .featured-news-lead-column {
+  grid-area: lead;
+}
+
+.featured-news .featured-news-aside {
+  grid-area: news;
+  border-top: 1px solid #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
+  padding: 16px;
+  background: #f6f7f7;
+}
+
+.featured-news picture {
+  display: block;
+  line-height: 0;
+}
+
+.featured-news img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.featured-news h1,
+.featured-news h2,
+.featured-news h3 {
+  color: #111;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.2;
+}
+
+.featured-news h1 {
+  margin: 12px 0;
+  font-size: clamp(28px, 3vw, 40px);
+  text-align: center;
+}
+
+.featured-news h2 {
+  margin: 8px 0;
+  font-size: 24px;
+}
+
+.featured-news h3 {
+  margin: 8px 0;
+  font-size: 20px;
+}
+
+.featured-news a:any-link {
+  color: inherit;
+}
+
+.featured-news .featured-news-category {
+  margin: 12px 0 4px;
+  color: #00816d;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.featured-news .featured-news-lead p:not(.featured-news-category) {
+  text-align: center;
+}
+
+.featured-news .featured-news-secondary article + article {
+  margin-top: 20px;
+  border-top: 1px solid #c2c2c2;
+  padding-top: 20px;
+}
+
+.featured-news .featured-news-aside > h2 {
+  margin: 0 0 16px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+  padding: 8px;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.featured-news .featured-news-aside article + article {
+  margin-top: 24px;
+  border-top: 1px solid #c2c2c2;
+  padding-top: 16px;
+}
+
+.featured-news .featured-news-aside article > p:last-child {
+  margin-bottom: 0;
+}
+
+@media (width >= 900px) {
+  .featured-news .featured-news-layout {
+    grid-template-areas: 'secondary lead news';
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.8fr) minmax(0, 0.9fr);
+    align-items: start;
+    gap: 24px;
+  }
+}

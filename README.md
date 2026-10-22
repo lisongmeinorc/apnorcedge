@@ -32,3 +32,5 @@ npm run lint
 1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
 1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
 1. Open the `apnorcedge` directory in your favorite IDE and start coding :)
+
+Until the site's content source is configured and the homepage is previewed, `/` returns 404 because `aem up` proxies it to the remote preview. Preview the local homepage content at `http://localhost:3000/index.plain.html`.
