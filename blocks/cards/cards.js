@@ -12,6 +12,15 @@ export default function decorate(block) {
     });
     ul.append(li);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  ul.querySelectorAll('picture > img').forEach((img) => {
+    const picture = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
+    const optimized = picture.querySelector('img');
+    ['width', 'height'].forEach((attribute) => {
+      if (img.hasAttribute(attribute)) {
+        optimized.setAttribute(attribute, img.getAttribute(attribute));
+      }
+    });
+    img.closest('picture').replaceWith(picture);
+  });
   block.replaceChildren(ul);
 }
