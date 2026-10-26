@@ -17,12 +17,13 @@ been verified.
 From the repository root, start the styled, decorated local preview:
 
 ```sh
-aem up --html-folder . --html-mount / --no-open
+npm start
 ```
 
 Open <http://127.0.0.1:3000/>. The CLI wraps `index.plain.html` with the document
 shell and `head.html`; opening `/index.plain.html` directly serves raw content.
-The README's raw-fragment URL is not the fully rendered preview.
+The start command enables `--html-folder . --html-mount /` so local content is
+used instead of remote preview content.
 
 | Content section | EDS implementation | Contents |
 | --- | --- | --- |

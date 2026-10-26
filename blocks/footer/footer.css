@@ -1,20 +1,133 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+.footer {
+  background: #000;
+  color: #fff;
+  font-family: roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-footer .footer > div {
+.footer .footer-content {
+  display: grid;
+  gap: 32px;
+  max-width: 1610px;
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 48px 20px 0;
 }
 
-footer .footer p {
+.footer h2,
+.footer h3 {
+  margin: 0 0 24px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.footer .footer-center h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 24px;
+}
+
+.footer h3 {
+  margin: 30px 0 12px;
+  font-size: 14px;
+}
+
+.footer p,
+.footer ul {
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+.footer ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer li + li {
+  margin-top: 16px;
+}
+
+.footer a:any-link {
+  color: inherit;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+.footer .footer-center p + ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.footer .footer-center p + ul li {
+  margin: 0;
+}
+
+.footer .footer-legal {
+  border-top: 1px solid #4a4a4a;
+  padding-block: 16px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.footer .footer-legal a {
+  text-decoration: underline;
+}
+
+.footer .footer-center a:has(.icon) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.footer .icon {
+  display: inline-flex;
+}
+
+.footer .icon img {
+  width: 20px;
+  height: 20px;
+}
+
+@media (width >= 768px) {
+  .footer .footer-content {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr);
+    padding: 64px 32px 0;
+  }
+
+  .footer .footer-center {
+    border-right: 1px solid #777;
+    padding-right: 24px;
+  }
+
+  .footer .footer-topics ul {
+    columns: 2;
+    column-gap: 24px;
+  }
+
+  .footer .footer-topics li {
+    break-inside: avoid;
+    margin: 0;
+    padding-bottom: 16px;
+  }
+
+  .footer .footer-legal {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (width >= 1280px) {
+  .footer .footer-topics ul {
+    columns: 3;
   }
 }

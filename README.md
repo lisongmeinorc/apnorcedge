@@ -30,7 +30,9 @@ npm run lint
 1. Create a new repository based on the `aem-boilerplate` template
 1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
 1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
-1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
+1. Start the local AP-NORC preview: `npm start`
 1. Open the `apnorcedge` directory in your favorite IDE and start coding :)
 
-Until the site's content source is configured and the homepage is previewed, `/` returns 404 because `aem up` proxies it to the remote preview. Preview the local homepage content at `http://localhost:3000/index.plain.html`.
+Open <http://localhost:3000/> for the styled AP-NORC homepage. `npm start` serves the repository's local HTML content at the site root, including navigation and footer fragments. `/index.plain.html` serves the raw homepage fragment, not the rendered page.
+
+Running plain `aem up` instead proxies remote preview content, which may still contain the default AEM tutorial until the migrated content is uploaded and previewed separately.
