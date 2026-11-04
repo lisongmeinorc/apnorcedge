@@ -27,7 +27,7 @@ used instead of remote preview content.
 
 | Content section | EDS implementation | Contents |
 | --- | --- | --- |
-| Featured news | `featured-news` | Lead election story, two secondary stories, and In the News sidebar. Source/reading order is lead-first; desktop grid displays secondary/lead/sidebar. |
+| Featured news | `cards vertical`, `cards vertical featured`, and `columns` | Two secondary story cards, one lead featured card, and the text-only In the News sidebar. Source order is secondary/lead/sidebar; desktop grid displays secondary/lead/sidebar, and narrower layouts place the lead first. |
 | Research and trends | `columns home-news` | The Latest research list, polling-tracker iframe with persistent fallback, and anniversary YouTube iframe/link. |
 | Staff Picks | Heading plus `cards staff-picks` | Three image-and-text research cards. |
 | Topics and programs | `columns home-directory` | Twelve specialty-topic links and two signature-program entries. |
@@ -70,7 +70,7 @@ not limited to the current diff.
 | `index.plain.html` | Added homepage, later corrected links/order/alts/dimensions, metadata, iframe label, and fullscreen permission; tracked and clean. |
 | `nav.plain.html` | Added shared navigation, search, and contact content; **untracked**. |
 | `footer.plain.html` | Added shared footer, corrected project link, and icon markup; tracked and clean. |
-| `blocks/featured-news/featured-news.js`, `blocks/featured-news/featured-news.css` | Added custom responsive block; decorator handles omitted cells and removes generated paragraph wrappers around articles; tracked and clean. |
+| `blocks/cards/cards.css`, `styles/styles.css` | Replaced the custom featured-news layout with the existing cards and columns blocks, styled as a responsive three-column section; modified. |
 | `blocks/header/header.js`, `blocks/header/header.css` | Extended existing block with responsive navigation, search, skip link, accessibility, and cleanup; tracked and clean. |
 | `blocks/footer/footer.js`, `blocks/footer/footer.css` | Extended fragment decoration with footer groups and scoped responsive/icon styles; **modified, uncommitted**. |
 | `blocks/cards/cards.js` | Reused existing cards decorator and preserved image dimensions during picture optimization; tracked and clean. |
@@ -81,7 +81,7 @@ not limited to the current diff.
 | `MIGRATION_SUMMARY.md` | This new developer handoff. |
 
 Reused unchanged: `blocks/columns/columns.js`, `blocks/columns/columns.css`,
-`blocks/cards/cards.css`, and `blocks/fragment/fragment.js` plus its CSS.
+`blocks/cards/cards.js`, and `blocks/fragment/fragment.js` plus its CSS.
 `scripts/scripts.js` and vendored `scripts/aem.js` were not modified.
 Other existing blocks and assistant skill directories are not migration runtime
 changes. No package manifest or lockfile changes were needed.

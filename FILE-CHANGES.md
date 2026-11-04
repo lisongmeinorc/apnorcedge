@@ -11,7 +11,7 @@ request.
 | File | Description |
 | --- | --- |
 | `README.md` | Adds a local-development note explaining the root-route 404 and linking to `/index.plain.html`. That URL serves raw content, not the styled and decorated homepage; see the preview instructions below. |
-| `styles/styles.css` | Adds homepage layout and responsive styling for the featured-news section, latest research, trends embeds and fallback text, staff picks, specialty topics, and signature programs. |
+| `styles/styles.css` | Adds homepage layout and responsive styling for featured stories, latest research, trends embeds and fallback text, staff picks, specialty topics, and signature programs. |
 
 ## New homepage files
 
@@ -19,9 +19,8 @@ These files are currently untracked by Git.
 
 | File | Description |
 | --- | --- |
-| `index.plain.html` | Local homepage content fragment containing featured stories, an In the News sidebar, latest research, polling trends and video embeds, staff picks, specialty-topic links, and signature programs. Uses the `featured-news`, `columns`, and `cards` blocks. |
-| `blocks/featured-news/featured-news.js` | Decorates the first block row by assigning layout classes to the secondary stories, lead story, and news sidebar. Guards against a missing row and omitted cells. |
-| `blocks/featured-news/featured-news.css` | Defines the featured-news typography, imagery, category labels, separators, and sidebar styling. Uses a stacked layout on smaller screens and a three-column layout at widths of 900px and above. |
+| `index.plain.html` | Local homepage content fragment containing featured stories, an In the News sidebar, latest research, polling trends and video embeds, staff picks, specialty-topic links, and signature programs. Uses the `columns` and `cards` blocks. |
+| `blocks/cards/cards.css`, `styles/styles.css` | Render featured stories with the existing `cards vertical`, `cards featured`, and `columns` blocks in a responsive three-column section. |
 
 ## New image assets
 
