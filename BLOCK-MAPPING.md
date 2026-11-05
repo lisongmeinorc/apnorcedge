@@ -7,6 +7,27 @@ live source page.
 
 Source site: <https://apnorc.org/>
 
+## DA-safe authoring
+
+The six block identities and their row/cell structure are unchanged. Repeating
+stories and signature programs are authored as lists inside their existing
+column cells. The columns decorator creates article wrappers and styling hooks
+at runtime; inner classes and `article` HTML are not authoring inputs.
+Staff Picks category classes are likewise inferred by the cards decorator.
+
+The polling tracker and YouTube embed are authored as standalone named links
+in the second `columns home-news` cell. The columns decorator creates the
+iframes, preserving the authored polling fallback and video link. Search is
+authored as a `https://apnorc.org/?s=` link in the navigation utility section;
+the header decorator creates the form. Footer icon links use authored text,
+with icons and accessible labels supplied by the footer decorator.
+
+The older implementation/diagnosis notes below are historical where they
+describe raw iframes, authored articles, or unavailable navigation/footer.
+See [README.md](./README.md#da-authoring-and-deployment) for current deployment
+and test instructions. Content publication does not deploy feature-branch CSS:
+the matching code must be reviewed and promoted separately.
+
 ## Mapping
 
 | Source page area | EDS section or block | Generated files / existing dependencies | Notes |

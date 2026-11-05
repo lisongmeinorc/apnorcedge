@@ -34,6 +34,31 @@ export default async function decorate(block) {
     if (section) panel.append(section);
   });
 
+  const searchLink = [...panel.querySelectorAll('.nav-tools p > a[href]')].find((link) => {
+    const url = new URL(link.href);
+    return url.origin === 'https://apnorc.org' && url.pathname === '/' && url.searchParams.has('s');
+  });
+  if (searchLink && !panel.querySelector('form')) {
+    const form = document.createElement('form');
+    form.setAttribute('role', 'search');
+    form.action = searchLink.href;
+    form.method = 'get';
+    const label = document.createElement('label');
+    label.htmlFor = 'nav-search';
+    label.textContent = searchLink.textContent;
+    const input = document.createElement('input');
+    input.id = 'nav-search';
+    input.type = 'search';
+    input.name = 's';
+    input.placeholder = 'Search';
+    input.required = true;
+    const button = document.createElement('button');
+    button.type = 'submit';
+    button.textContent = 'Search';
+    form.append(label, input, button);
+    searchLink.closest('p').replaceWith(form);
+  }
+
   const menuButton = document.createElement('button');
   menuButton.type = 'button';
   menuButton.className = 'nav-toggle';

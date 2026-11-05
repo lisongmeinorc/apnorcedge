@@ -1,4 +1,4 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { getMetadata, decorateIcons } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -21,5 +21,21 @@ export default async function decorate(block) {
   ['center', 'programs', 'topics', 'legal'].forEach((name, i) => {
     footer.children[i]?.classList.add(`footer-${name}`);
   });
+  const iconNames = new Map([
+    ['mailto:info@apnorc.org', 'email'],
+    ['https://twitter.com/APNORC', 'twitter'],
+  ]);
+  footer.querySelectorAll('a[href]').forEach((link) => {
+    const iconName = iconNames.get(link.href);
+    const label = link.textContent.trim();
+    if (!iconName || !label) return;
+    const icon = document.createElement('span');
+    icon.className = `icon icon-${iconName}`;
+    icon.setAttribute('aria-hidden', 'true');
+    link.setAttribute('aria-label', label);
+    link.title = label;
+    link.replaceChildren(icon);
+  });
+  decorateIcons(footer);
   block.append(footer);
 }

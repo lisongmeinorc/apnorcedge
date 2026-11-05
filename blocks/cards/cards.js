@@ -9,6 +9,13 @@ export default function decorate(block) {
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
       else div.className = 'cards-card-body';
+      if (block.classList.contains('staff-picks')) {
+        const heading = div.querySelector('h2, h3');
+        const category = heading?.previousElementSibling;
+        if (category?.matches('p') && !category.querySelector('picture')) {
+          category.classList.add('staff-picks-category');
+        }
+      }
     });
     ul.append(li);
   });
